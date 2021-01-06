@@ -9,7 +9,7 @@ class Formulaire
 
 public function renderTypeOne() // TODO change the name of the function
     {
-    echo  '<form></form>';
+    echo  '<form action="" method=""><input type="text"></input></form>';
     }
 
 }?>

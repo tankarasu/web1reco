@@ -3,11 +3,11 @@
 require './classes/Formulaires.php';
 require './assets/config.php';
 // instanciate class
-$formulaire = new Formulaire();// TODO change the name for the first formulaire
+$formulaire = new Formulaire();
 
 
 $sql = "SELECT id, nom, descriptions,Categorie_id,source FROM base1reco.produits";
-$sqlCategories  =  "SELECT nom,descriptions FROM base1reco.categorie";
+$sqlCategories  =  "SELECT id,nom,descriptions FROM base1reco.categorie";
 
 // Exécution de la requête de sélection
 $resultat = $dbh->query($sql);
@@ -30,13 +30,44 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+    <header class='container main-menu'>
+        <h1>Drive Service</h1>
+        <ul class='mainMenuList'>
+            <li>Gestion</li>
+            <li>Mon Panier</li>
+        </ul>
+    </header>
     <?php
-    echo '<div class ="row">';
+    $formulaire -> handleProductForm();
+    echo '<div class="container main-frame">';
     
-    foreach ($les_produits as $produit) {
-            
+?>
+<nav class="">
+   <?php 
+   echo '<ul>';
+    foreach ($les_categories as $categorie){
+        $nom = $categorie['nom'];
+        echo "<li>
+        <a href='#".$categorie['id']."'>".$nom."</a>
+        </li>";
+    }
+    echo '</ul>';
+   ?>
+
+</nav>
+    <?php
+    echo '<div class="">';
+    foreach ($les_categories as $categorie){
+        $nom = $categorie['nom'];
+        echo "<div>";
+        echo "<h2 id='".$categorie['id']."'>".$nom."</h2>";
+        echo "<div class='row'>";
+        foreach($les_produits as $produit){
             $src = "./images/produits/".$produit['Categorie_id']."/".$produit['source']."";
-            echo "  
+            $id = $categorie['id'];
+            $idProduit = $produit['Categorie_id'];
+            if($id == $idProduit){
+                echo "  
                         <div class='card product_card col-lg-2 col-md-3 col-sm-4'>
                             <img class='card-img-top' alt='photo produit' src=$src> 
                             <div class='card-body'>
@@ -46,10 +77,16 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
                             </div>
                         </div> 
                     ";
+            };
         }
-
-        echo '</div>';
+        echo "</div>";
+        echo "</div>";
+    }
+    echo '</div>';
+    echo '</div>';
+    $dbh = null;
     ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">

@@ -1,0 +1,10 @@
+.mainMenuList{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}
+
+.mainMenuList li{
+    margin-right: 1rem;
+}

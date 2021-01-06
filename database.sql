@@ -4,10 +4,10 @@ GRANT ALL ON *.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 
 -- creating structure of the database
-DROP DATABASE IF EXISTS drive;
-CREATE DATABASE drive DEFAULT CHARACTER SET utf8mb4;
+DROP DATABASE IF EXISTS base1reco;
+CREATE DATABASE base1reco DEFAULT CHARACTER SET utf8mb4;
 -- table user
-CREATE TABLE drive.user (
+CREATE TABLE base1reco.user (
     id INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(100) DEFAULT NULL,
     email VARCHAR(100) DEFAULT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE drive.user (
 ) ;
 
 -- table categorie
-CREATE TABLE drive.categorie (
+CREATE TABLE base1reco.categorie (
     id INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(100) DEFAULT NULL,
     descriptions VARCHAR(100) DEFAULT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE drive.categorie (
 );
 
 -- table produits
-CREATE TABLE drive.produits (
+CREATE TABLE base1reco.produits (
     id INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(100) DEFAULT NULL,
     descriptions VARCHAR(100) DEFAULT NULL,
@@ -35,20 +35,20 @@ CREATE TABLE drive.produits (
     promo BOOLEAN,
     source VARCHAR(2),
     PRIMARY KEY (id),
-    FOREIGN KEY (Categorie_id) REFERENCES drive.categorie(id)
+    FOREIGN KEY (Categorie_id) REFERENCES base1reco.categorie(id)
 );
 
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- insert user
-INSERT INTO drive.user (nom, email,passwords) VALUES
+INSERT INTO base1reco.user (nom, email,passwords) VALUES
 ('admin','admin@example.com','root')
 ('Tan','tan@example.com','azerty'),
 ('Alex','alex@example.com','azerty'),
 ('Sofia','sofia@example.com','azerty');
 
 -- insert categorie
-INSERT INTO drive.categorie(nom,descriptions) VALUES
+INSERT INTO base1reco.categorie(nom,descriptions) VALUES
 ('Bio','tous les produits issus du circuit bio'),
 ('Viandes','coté fraicheur et seigneur en boucherie'),
 ('fruitlegume','notre étal du marché frais'),
@@ -64,7 +64,7 @@ INSERT INTO drive.categorie(nom,descriptions) VALUES
 
 -- insert produits
 -- categorie bebe
-INSERT INTO drive.produits(nom,descriptions,equitable,Categorie_id,prix,stock,promo,source) VALUES
+INSERT INTO base1reco.produits(nom,descriptions,equitable,Categorie_id,prix,stock,promo,source) VALUES
 ('Evolia','lait Guigoz Evolia',false,10,13.8,35,false,"1.jpg"),
 ('Gallia','lait Guigoz Gallia',false,10,13.28,25,false,"2.jpg"),
 ('Nidal','lait Nestle Nidal',false,10,14.85,25,false,"3.jpg"),
@@ -135,4 +135,4 @@ INSERT INTO drive.produits(nom,descriptions,equitable,Categorie_id,prix,stock,pr
 ('Boucherie-Faux-filet Le Boeuf','Viande sélectionné par nos boucher 100g',false,2,5.99,40,false,"2.jpg"),
 ('Boucherie-Bavette Le Boeuf','Viande sélectionné par nos boucher 100g',false,2,4.50,40,false,"3.jpg"),
 ('Boeuf Bourgignon BIO pure boeuf','barquette de viande de boeuf bourgignon 200g',true,2,6.50,40,false,"4.jpg"),
-('Faux-filet Bio','Une tranche de faux-fillet Bio 90g',true,2,3.99,40,true,"5.jpg"),
+('Faux-filet Bio','Une tranche de faux-fillet Bio 90g',true,2,3.99,40,true,"5.jpg");

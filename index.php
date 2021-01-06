@@ -7,10 +7,13 @@ $formulaire = new Formulaire();// TODO change the name for the first formulaire
 
 
 $sql = "SELECT id, nom, descriptions,Categorie_id,source FROM base1reco.produits";
+$sqlCategories  =  "SELECT nom,descriptions FROM base1reco.categorie";
 
 // Exécution de la requête de sélection
 $resultat = $dbh->query($sql);
 $les_produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
+$categories = $dbh -> query($sqlCategories);
+$les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -28,22 +31,24 @@ $les_produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <?php
-    
+    echo '<div class ="row">';
     
     foreach ($les_produits as $produit) {
             
             $src = "./images/produits/".$produit['Categorie_id']."/".$produit['source']."";
-            echo $src;
-            echo "  <div class='card product_card'>
-                    <img class='card-img-top' alt='photo produit' src=$src> 
-                        <div class='card-body'>
-                            <h5 class='card-title'>".$produit['nom']."</h5>
-                            <p class='card-text'>".$produit['descriptions']."</p>
-                            <button class='btn btn-primary'>Add to Cart</button>
-                        </div>
-                    </div>";
+            echo "  
+                        <div class='card product_card col-lg-2 col-md-3 col-sm-4'>
+                            <img class='card-img-top' alt='photo produit' src=$src> 
+                            <div class='card-body'>
+                                <h5 class='card-title'>".$produit['nom']."</h5>
+                                <p class='card-text'>".$produit['descriptions']."</p>
+                                <button class='btn btn-primary'>Add to Cart</button>
+                            </div>
+                        </div> 
+                    ";
         }
 
+        echo '</div>';
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

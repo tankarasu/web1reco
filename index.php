@@ -38,7 +38,6 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
         </ul>
     </header>
     <?php
-    $formulaire -> handleProductForm();
     echo '<div class="container main-frame">';
     
 ?>

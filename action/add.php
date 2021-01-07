@@ -1,25 +1,18 @@
 <?php
-require '../assets/config.php';
+// session
+session_start();
 
-var_dump ($_GET);
+// includes
+require '../assets/config.php';
 
 $nom = $_GET['nom'];
 $descriptions = $_GET['descriptions'];
-$equitable = $_GET['equitable'];
+$equitable = $_GET['equitable'] ?? 0;
 $Categorie_id = $_GET['Categorie_id'];
 $prix = $_GET['prix'];
 $stock = $_GET['stock'];
-$promo = $_GET['promo'];
+$promo = $_GET['promo'] ?? 0;
 $source = $_GET['source'];
-
-if( $equitable==""){
-    $equitable=0;
-};
-
-if( $promo==""){
-    $promo=0;
-};
-
 
 $sql = "INSERT INTO base1reco.produits (nom,descriptions,equitable,Categorie_id,prix,stock,promo,source) VALUES
 ('$nom','$descriptions',$equitable,$Categorie_id,$prix,$stock,$promo,'$source')";

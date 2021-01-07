@@ -1,4 +1,8 @@
 <?php
+// session
+session_start();
+
+
 // includes 
 require './classes/Formulaires.php';
 require './assets/config.php';

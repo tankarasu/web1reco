@@ -1,4 +1,7 @@
 <?php
+// session
+session_start();
+
 require '../assets/config.php';
 
 $id= $_GET['id'];

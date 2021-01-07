@@ -1,4 +1,7 @@
 <?php
+// session
+session_start();
+
 require '../assets/config.php';
 
 	$query = $_GET['pSearch']; 

@@ -12,4 +12,6 @@ $sql = "DELETE FROM base1reco.produits WHERE id=$id";
 $resultat = $dbh->query($sql);
 
 $dbh = null;
+
+retourne();
 ?>

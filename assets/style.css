@@ -1,12 +1,4 @@
-@import './libs/reset.css';
-@import './libs/mainMenu.css';
-@import './libs/form.css';
+@import "./libs/reset.css";
+@import "./libs/form.css";
+@import "./libs/menu.css";
 
-.main-frame {
-  display: flex;
-  flex-direction: row;
-}
-
-.card img {
-  width: 10rem;
-}

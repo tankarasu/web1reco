@@ -61,6 +61,8 @@ $les_produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
     </script>
 <?php
     $dbh =null;
+    retourne();
+
 ?>
 </body>
 </html>

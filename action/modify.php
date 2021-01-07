@@ -32,4 +32,6 @@ WHERE id = $id";
 $resultat = $dbh->query($sql);
 
 $dbh = null;
+
+retourne();
 ?>

@@ -28,4 +28,6 @@ $sql = "INSERT INTO base1reco.produits (nom,descriptions,equitable,Categorie_id,
 $resultat = $dbh->query($sql);
 
 $dbh = null;
+
+retourne();
 ?>

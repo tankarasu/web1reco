@@ -6,8 +6,6 @@ session_start();
 // includes 
 require './classes/Formulaires.php';
 require './assets/config.php';
-// instanciate class
-$formulaire = new Formulaire();
 
 // initialisation des requêtes
 $sql = "SELECT id, nom, descriptions,Categorie_id,source FROM base1reco.produits";
@@ -22,16 +20,12 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drive Service</title>
-    <link href="./assets/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drive Service</title>
+        <link href="./assets/style.css" rel="stylesheet">
+    </head>
 
 <body>
     <header class='container main-menu'>
@@ -58,8 +52,8 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 	        <input type="submit" value="Search" />
         </form>
         <ul class='mainMenuList'>
-            <li>Gestion</li>
-            <li>Mon Panier</li>
+            <li><a href="./gestion.php">Gestion</a></li>
+            <li><a href="./action/buy.php">Mon Panier</a></li>
         </ul>
     </header>
     <?php
@@ -69,7 +63,7 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 <nav class="">
    <?php 
    // affichage des liens de menus à gauche
-   echo '<ul>';
+   echo '<ul class="leftMenu">';
     foreach ($les_categories as $categorie){
         $nom = $categorie['nom'];
         echo "<li>
@@ -113,10 +107,6 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
     echo '</div>';
     $dbh = null;
     ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </script>
 
 </body>
 

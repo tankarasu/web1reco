@@ -60,6 +60,8 @@ require '../assets/config.php';
 			echo "Pas de résultat";
 		}
     }
+    
+    retourne();
     ?>
 
 

@@ -13,15 +13,6 @@ public function deleteProduct()  // && delete product
             </form>';
 }
 
-public function showCart()
-{
-   echo  ' <form action="" method="" class="handleForm">
-                <label for="cart">Your cart:</label>
-                <p>Test Cart 250 €</p>
-                <input type="submit" value="Pay"></input>
-            </form>';
-}
-
 public function handleProductForm($action)// modify && add product
     {    
     echo  " <form action='".$action."' method='GET' class='handleForm'>";

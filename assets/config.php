@@ -11,4 +11,8 @@ function retour(){
     echo '<a href="index.php">index</a>';
 }
 
+function retourne(){
+    echo '<a href="../index.php">index</a>';
+}
+
 ?>

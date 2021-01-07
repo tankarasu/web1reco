@@ -2,6 +2,7 @@
 // session
 session_start();
 
+// includes
 require '../assets/config.php';
 	$categorie = $_GET['Categorie_id']; 
 ?>
@@ -20,8 +21,9 @@ require '../assets/config.php';
 <body>
 
 <?php 
+// vérification sur la présence de catégorie
 if($categorie){
-
+        // on initialise la requête
         $sql = "SELECT * FROM base1reco.produits
             WHERE Categorie_id = $categorie";
 

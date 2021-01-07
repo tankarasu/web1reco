@@ -2,6 +2,7 @@
 // session
 session_start();
 
+// panier codé en dur
 $_SESSION['cart'] = ["10"=>2,"22"=>3,"32"=>1];
 
 // includes 
@@ -16,6 +17,7 @@ $stringKey="(". implode(',',$cartKey).")";
 $cart =array_values($_SESSION['cart']);
 $stringArray = "(" . implode(',',$cart) . ")";
 
+// requête SQL
 $sql = "SELECT  nom,prix FROM base1reco.produits WHERE id in $stringKey";
 
 // Exécution de la requête de sélection
@@ -36,15 +38,19 @@ $les_produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <?php
+        // initialise les valeurs de contrôle
         $index = 0;
         $totalGeneral = 0;
+        // on boucle sur chaque produit du panier
         foreach($les_produits as $produit){
+            // instanciation de l'objet Buy
             $total = new Buy();
             $prixUnitaire = $produit['prix'];
             $totalProduit = $total ->calculateTotal(intval($cart[$index]),floatval($prixUnitaire)) ;
             $nom = $produit['nom'];
             echo $nom . " - " . $prixUnitaire . "€/pièce - quantité: " . $cart[$index] . " - total: ".$totalProduit. " € <br>";
             $index ++;
+            // on rajoute la somme de la ligne au total général
             $totalGeneral += $totalProduit ;
         }
         echo "<br>Prix du panier total: ".$totalGeneral." € <br>"

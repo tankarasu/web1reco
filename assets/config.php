@@ -11,8 +11,4 @@ function retour(){
     echo '<a href="index.php">index</a>';
 }
 
-
-
-
-
 ?>

@@ -2,11 +2,11 @@
 // session
 session_start();
 
+// include
 require '../assets/config.php';
-
+    // défini une contrainte pour la recherche
 	$query = $_GET['pSearch']; 
 	$min_length = 3;
-	
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +23,12 @@ require '../assets/config.php';
 <body>
     
     <?php 
-if(strlen($query) >= $min_length){
+    // on vérifie que la contrainte est respecté
+    if(strlen($query) >= $min_length){
         // change les caractères spéciaux en équivalent HTML
         $query = htmlspecialchars($query);
-
+        
+        // on initialise la requête
         $sql = "SELECT * FROM base1reco.produits
             WHERE (`nom` LIKE '%".$query."%') OR (`descriptions` LIKE '%".$query."%')";
 

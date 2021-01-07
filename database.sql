@@ -126,7 +126,7 @@ INSERT INTO base1reco.produits(nom,descriptions,equitable,Categorie_id,prix,stoc
 ('Cracotte','Cracotte Tartine croustillante fourrée chocolat fabriqué en France 200g',false,8,5.0,80,true,"5.jpg"),
 -- catégorie surgeles
 ("Beurre d'escargot","Beurre d'escargot 250g",false,6,3.95,20,true,"1.jpg"),
-('CôtéTable',' Crêpe jambon emmental 300g',false,1.40,80,true,"2.jpg"),
+('CôtéTable',' Crêpe jambon emmental 300g',false,6,1.40,80,true,"2.jpg"),
 ('Charal','2 Kebabs 2x150g',false,6,5.99,40,false,"3.jpg"),
 ('CôtéTable','Lasagnes à la bolognaise de boeuf',false,6,4.20,30,true,"4.jpg"),
 ('CôtéTable','Hachis Parmentier',false,6,3.99,40,false,"5.jpg"),

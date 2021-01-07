@@ -9,11 +9,11 @@ require './assets/config.php';
 // instanciate class
 $formulaire = new Formulaire();
 
-
+// initialisation des requêtes
 $sql = "SELECT id, nom, descriptions,Categorie_id,source FROM base1reco.produits";
 $sqlCategories  =  "SELECT id,nom,descriptions FROM base1reco.categorie";
 
-// Exécution de la requête de sélection
+// Exécution et traitement des requêtes de sélection
 $resultat = $dbh->query($sql);
 $les_produits = $resultat->fetchAll(PDO::FETCH_ASSOC);
 $categories = $dbh -> query($sqlCategories);
@@ -68,6 +68,7 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 ?>
 <nav class="">
    <?php 
+   // affichage des liens de menus à gauche
    echo '<ul>';
     foreach ($les_categories as $categorie){
         $nom = $categorie['nom'];
@@ -81,8 +82,10 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 </nav>
     <?php
     echo '<div class="">';
+    // on boucle sur les categories
     foreach ($les_categories as $categorie){
         $nom = $categorie['nom'];
+        // affichage des categories dans le container principal
         echo "<div>";
         echo "<h2 id='".$categorie['id']."'>".$nom."</h2>";
         echo "<div class='row'>";
@@ -110,7 +113,6 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
     echo '</div>';
     $dbh = null;
     ?>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">

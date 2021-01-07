@@ -33,7 +33,24 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
     <header class='container main-menu'>
         <h1>Drive Service</h1>
         <form action="./action/search.php" method="GET">
-	        <input type="text" name="query" />
+	        <input type="text" name="pSearch" />
+	        <input type="submit" value="Search" />
+        </form>
+        <form action="./action/categorieSearch.php" method="GET">
+	        <select name='Categorie_id' id='Categorie_id' >
+                <option value='1'>BIO</option>
+                <option value='2'>Viandes</option>
+                <option value='3'>F-Leg</option>
+                <option value='4'>Boul-Pat</option>
+                <option value='5'>Frais</option>
+                <option value='6'>Surgelés</option>
+                <option value='7'>Salé</option>
+                <option value='8'>Sucré</option>
+                <option value='9'>Boisson</option>
+                <option value='10'>Bébé</option>
+                <option value='11'>Hygiène</option>
+                <option value='12'>Lessive</option>
+            </select>
 	        <input type="submit" value="Search" />
         </form>
         <ul class='mainMenuList'>

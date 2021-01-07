@@ -1,9 +1,6 @@
 <?php
 require '../assets/config.php';
-
-	$query = $_GET['pSearch']; 
-	$min_length = 3;
-	
+	$categorie = $_GET['Categorie_id']; 
 ?>
 
 <!DOCTYPE html>
@@ -18,14 +15,12 @@ require '../assets/config.php';
         
 </head>
 <body>
-    
-    <?php 
-if(strlen($query) >= $min_length){
-        // change les caractères spéciaux en équivalent HTML
-        $query = htmlspecialchars($query);
+
+<?php 
+if($categorie){
 
         $sql = "SELECT * FROM base1reco.produits
-            WHERE (`nom` LIKE '%".$query."%') OR (`descriptions` LIKE '%".$query."%')";
+            WHERE Categorie_id = $categorie";
 
             // Exécution de la requête de sélection
                 $resultat = $dbh->query($sql);
@@ -56,7 +51,6 @@ if(strlen($query) >= $min_length){
 		}
     }
     ?>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">

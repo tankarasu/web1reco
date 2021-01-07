@@ -32,6 +32,10 @@ $les_categories = $categories -> fetchAll(PDO::FETCH_ASSOC);
 <body>
     <header class='container main-menu'>
         <h1>Drive Service</h1>
+        <form action="./action/search.php" method="GET">
+	        <input type="text" name="query" />
+	        <input type="submit" value="Search" />
+        </form>
         <ul class='mainMenuList'>
             <li>Gestion</li>
             <li>Mon Panier</li>

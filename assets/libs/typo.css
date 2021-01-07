@@ -1,0 +1,35 @@
+h1 {
+  font-size: 3rem;
+  color: #f3f3f3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.418);
+}
+
+h2 {
+  font-size: 2rem;
+  background-color: rgb(211, 183, 141);
+  text-align: center;
+  color: #f3f3f3;
+  padding: 0.7rem 0;
+  text-shadow: 1px 3px 5px black;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+.main-menu a {
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.mainMenuList li {
+  margin: 1rem 0;
+}
+
+.main-menu a:hover {
+  color: red;
+}
+
+.column h5 {
+  margin-top: 1rem;
+}

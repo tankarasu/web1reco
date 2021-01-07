@@ -1,4 +1,18 @@
 @import "./libs/reset.css";
 @import "./libs/form.css";
 @import "./libs/menu.css";
+@import "./libs/typo.css";
 
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+.main-wrapper,
+main-frame {
+  width: 1200px;
+  margin: 0 auto;
+}

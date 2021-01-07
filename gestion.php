@@ -24,21 +24,31 @@ $formulaire = new Formulaire();
     retour();
     echo "</nav>";
     echo "<div class='main-frame'>";
-    // Formulaire de suppression
-    $formulaire -> deleteProduct();
 
-?>
+    // Formulaire de suppression
+    echo "<div class='column'>";
+    echo "<h5>Supprimer Produit</h5>";
+    $formulaire -> deleteProduct();
+    echo "</div>"
+    ?>
 
 <?php
     // Formulaire de modification
+    echo "<div class='column'>";
+    echo "<h5>Modifier Produit</h5>";
     $formulaire -> handleProductForm($formulaire->modify);
+    echo "</div>"
 
-?>
+    ?>
 
 <?php
     // Formulaire d'ajout
+    echo "<div class='column'>";
+    echo "<h5>Ajouter Produit</h5>";
     $formulaire -> handleProductForm($formulaire->add);
-    echo "</div>";
+    echo "</div>";    
+    echo "</div>"
+
 ?>
     
 </body>

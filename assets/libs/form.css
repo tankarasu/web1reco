@@ -1,0 +1,23 @@
+.menuForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuForm form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+select#Categorie_id {
+  width: 144px;
+}
+
+.handleForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-frame {
+  padding: 2rem;
+}
